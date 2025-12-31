@@ -10,7 +10,7 @@ body {
     font-family: var(--font-family);
     background-color: var(--primary-bg);
     margin: 0;
-    padding: 20px;
+    padding: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -20,7 +20,110 @@ body {
 
 header {
     text-align: center;
-    margin-bottom: 30px;
+    padding: 20px;
+    background: white;
+    width: 100%;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.controls {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+#search-input {
+    width: 90%;
+    max-width: 400px;
+    padding: 12px 20px;
+    border: 2px solid #e0e0e0;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    font-family: inherit;
+    transition: border-color 0.3s;
+}
+
+#search-input:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.alphabet-scroll {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    width: 100%;
+    max-width: 600px;
+    padding: 5px 0;
+    justify-content: flex-start;
+    /* Allows scrolling from start */
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.alphabet-scroll::-webkit-scrollbar {
+    display: none;
+    /* Chrome/Safari */
+}
+
+.letter-btn {
+    background: #f0f4f8;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 500;
+    color: #555;
+    flex-shrink: 0;
+    transition: all 0.2s;
+}
+
+.letter-btn:hover,
+.letter-btn.active {
+    background: #667eea;
+    color: white;
+}
+
+#game-board {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(var(--card-width), 1fr));
+    gap: 20px;
+    width: 100%;
+    max-width: 1000px;
+    justify-items: center;
+    padding: 20px;
+    margin-top: 10px;
+}
+
+#load-more-container {
+    margin: 20px 0 40px;
+    text-align: center;
+}
+
+#load-more-btn {
+    background: #2c3e50;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+    font-family: inherit;
+}
+
+#load-more-btn:hover {
+    background: #34495e;
+}
+
+#load-more-btn.hidden {
+    display: none;
 }
 
 header h1 {
@@ -58,7 +161,7 @@ header p {
     transform-style: preserve-3d;
     transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
     border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .card.is-flipped {
@@ -120,7 +223,7 @@ header p {
         --card-width: 130px;
         --card-height: 180px;
     }
-    
+
     header h1 {
         font-size: 2rem;
     }

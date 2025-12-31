@@ -15,11 +15,23 @@
     <header>
         <h1>עברית שפה יפה</h1>
         <p>לחצו על הכרטיס כדי לגלות את המילה העברית</p>
+
+        <div class="controls">
+            <input type="search" id="search-input" placeholder="חפש מילה..." aria-label="חיפוש">
+            <div id="alphabet-filter" class="alphabet-scroll">
+                <!-- Alphabet buttons will be injected here -->
+            </div>
+        </div>
     </header>
 
     <main id="game-board">
         <!-- Cards will be injected here -->
     </main>
+
+    <div id="load-more-container">
+        <button id="load-more-btn">הצג עוד מילים</button>
+    </div>
+
 
     <script src="js/data.js"></script>
     <script src="js/app.js"></script>

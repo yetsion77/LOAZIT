@@ -95,8 +95,12 @@ function filterByLetter(letter, btnElement) {
     renderCards(false);
 }
 
+function stripNikud(text) {
+    return text.replace(/[\u0591-\u05C7]/g, '');
+}
+
 function handleSearch(e) {
-    const term = e.target.value.toLowerCase();
+    const term = stripNikud(e.target.value.toLowerCase());
 
     // Reset alphabet buttons visual state
     document.querySelectorAll('.letter-btn').forEach(b => b.classList.remove('active'));
@@ -105,7 +109,7 @@ function handleSearch(e) {
         currentWords = [...wordList];
     } else {
         currentWords = wordList.filter(word =>
-            word.foreign.includes(term) || word.hebrew.includes(term)
+            stripNikud(word.foreign).includes(term) || stripNikud(word.hebrew).includes(term)
         );
     }
 

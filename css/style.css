@@ -138,6 +138,13 @@ header p {
     margin-top: 10px;
 }
 
+.credit-text {
+    font-size: 0.9rem;
+    color: #777;
+    margin-top: 5px;
+    font-weight: 300;
+}
+
 #game-board {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(var(--card-width), 1fr));
